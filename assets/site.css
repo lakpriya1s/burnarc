@@ -232,6 +232,8 @@ section { padding: 72px 0; }
 /* Hero gauge */
 .hero-gauge { width: min(100%, 320px); }
 .hero-gauge .g-num { font-size: clamp(40px, 6vw, 52px); bottom: 0; }
+/* 100% is drawn at 3/4 size so it takes the same width as "42%": nothing shifts as the hero cycles. */
+.g-num .wide { font-size: 0.75em; }
 .hero-gauge .g-sub { font-size: 14px; }
 .hero-caption { font: 500 14px/20px var(--mono); color: var(--text-2); text-align: center; height: 20px; white-space: nowrap; transition: color .4s; }
 

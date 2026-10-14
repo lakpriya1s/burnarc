@@ -116,7 +116,7 @@
         o: { f: s.used / 100, color: color, pace: s.pace },
         i: { f: s.week / 100, color: "var(--weekly)", pace: 0.35 }
       });
-      num$.textContent = s.used + "%";
+      num$.innerHTML = s.used >= 100 ? '<span class="wide">100%</span>' : s.used + "%";
       num$.style.color = s.danger ? "var(--danger)" : "var(--text)";
       sub$.textContent = "Week " + s.week + "%";
       cap$.textContent = s.caption;
