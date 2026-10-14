@@ -14,5 +14,5 @@ markers and alerts. No account, no server.
 This repository hosts the website and the Mac releases. Found a bug or have an
 idea? [Open an issue](https://github.com/lakpriya1s/burnarc/issues).
 
-BurnArc is made by CodeScale and is not affiliated with Anthropic. Claude and
+BurnArc is made by Lakpriya Senevirathna and is not affiliated with Anthropic. Claude and
 Claude Code are trademarks of Anthropic, PBC.
