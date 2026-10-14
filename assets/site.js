@@ -19,6 +19,15 @@
     return m + "m";
   }
 
+  // A percentage that always takes three digits' width, so a centred number
+  // never shifts: "5%" gets an invisible leading digit, "100%" is drawn at
+  // 3/4 size.
+  function pctHTML(n) {
+    if (n >= 100) return '<span class="wide">100%</span>';
+    if (n < 10) return '<span class="pad">0</span>' + n + "%";
+    return n + "%";
+  }
+
   // --- Gauge: two half arcs, 128x74, line 10, inner inset 16 -------------
   var CX = 64, CY = 69, LW = 10;
   function arcPath(r, f) {
@@ -37,6 +46,9 @@
     for (var k in attrs) e.setAttribute(k, attrs[k]);
     return e;
   }
+  // Each arc is a full half circle that fills along its own curve
+  // (pathLength 1 + dash), and the pace tick rotates about the centre, so
+  // they stay on the circle while they animate instead of cutting across it.
   function buildGauge(host) {
     var svg = el("svg", { viewBox: "0 0 128 74", "aria-hidden": "true", focusable: "false" });
     var parts = {};
@@ -44,8 +56,8 @@
       var key = ring[0], r = ring[1];
       var g = el("g", { fill: "none", "stroke-linecap": "round" });
       g.appendChild(el("path", { d: arcPath(r, 1), stroke: "var(--track)", "stroke-width": LW }));
-      var fill = el("path", { d: arcPath(r, 0.0001), "stroke-width": LW });
-      var tick = el("path", { d: tickPath(r, 0.5), stroke: "var(--text)", "stroke-width": 2 });
+      var fill = el("path", { d: arcPath(r, 1), "stroke-width": LW, pathLength: 1, "class": "g-fill" });
+      var tick = el("path", { d: tickPath(r, 0), stroke: "var(--text)", "stroke-width": 2, "class": "g-tick" });
       g.appendChild(fill); g.appendChild(tick);
       svg.appendChild(g);
       parts[key] = { r: r, fill: fill, tick: tick, group: g };
@@ -61,11 +73,13 @@
       var s = state[k], p = parts[k];
       p.group.style.display = s ? "" : "none";
       if (!s) return;
-      p.fill.setAttribute("d", arcPath(p.r, Math.max(s.f, 0.0001)));
+      var f = Math.min(Math.max(s.f, 0), 1);
+      // A zero-length dash still draws a round cap, so hide an empty arc.
+      p.fill.style.strokeDasharray = Math.max(f, 0.0001) + " 2";
+      p.fill.style.opacity = f > 0 ? 1 : 0;
       p.fill.setAttribute("stroke", s.color);
-      p.fill.style.opacity = s.f > 0 ? 1 : 0;
       p.tick.style.display = s.pace == null ? "none" : "";
-      if (s.pace != null) p.tick.setAttribute("d", tickPath(p.r, s.pace));
+      if (s.pace != null) p.tick.style.transform = "rotate(" + (180 * Math.min(Math.max(s.pace, 0), 1)).toFixed(2) + "deg)";
     });
   }
   function num(v) { return v === "" || v == null ? null : parseFloat(v); }
@@ -116,7 +130,7 @@
         o: { f: s.used / 100, color: color, pace: s.pace },
         i: { f: s.week / 100, color: "var(--weekly)", pace: 0.35 }
       });
-      num$.innerHTML = s.used >= 100 ? '<span class="wide">100%</span>' : s.used + "%";
+      num$.innerHTML = pctHTML(s.used);
       num$.style.color = s.danger ? "var(--danger)" : "var(--text)";
       sub$.textContent = "Week " + s.week + "%";
       cap$.textContent = s.caption;
@@ -164,7 +178,7 @@
       v.style.color = danger ? "var(--danger)" : "var(--success)";
       var color = danger ? "var(--danger)" : weekly ? "var(--weekly)" : "var(--accent)";
       setGauge(gauge, { o: { f: percent / 100, color: color, pace: e / dur }, i: null });
-      gauge.querySelector(".g-num b").textContent = percent + "%";
+      gauge.querySelector(".g-num b").innerHTML = pctHTML(percent);
       gauge.querySelector(".g-sub").textContent = weekly ? "weekly" : "5-hour";
     };
     used.addEventListener("input", update);
