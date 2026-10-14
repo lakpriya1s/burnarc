@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — BurnArc</title>
+<meta name="description" content="Set up BurnArc for Claude Code on your Mac, pair your iPhone and Apple Watch, and fix common problems.">
+<link rel="canonical" href="https://lakpriya1s.github.io/burnarc/support.html">
+<meta name="theme-color" content="#0E1116">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BurnArc support">
+<meta property="og:description" content="Setup and troubleshooting for BurnArc on Mac, iPhone and Apple Watch.">
+<meta property="og:url" content="https://lakpriya1s.github.io/burnarc/support.html">
+<meta property="og:image" content="https://lakpriya1s.github.io/burnarc/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("burnarc.theme");if(t&&t!=="default")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="30" height="30">BurnArc</a>
+    <a class="btn btn-primary btn-small" href="./#download">Download</a>
+  </div>
+</header>
+<main class="legal">
+  <div class="wrap">
+    <h1>Support</h1>
+    <p>Setting up BurnArc takes a couple of minutes. If something doesn't look right, the fixes below cover the usual causes. Still stuck? <a href="https://github.com/lakpriya1s/burnarc/issues">Open an issue on GitHub</a>.</p>
+
+    <h2>Set up on your Mac</h2>
+    <ol>
+      <li><a href="./#download">Download the DMG</a>, open it, and drag <strong>BurnArc</strong> into Applications. Open it — it lives in the menu bar.</li>
+      <li>Open BurnArc's <strong>Settings</strong> from the menu bar and add your Claude Code profile folders, such as <code>~/.claude</code> and <code>~/.claude-work</code>. Choose the folder when asked so BurnArc can read it.</li>
+      <li>Click <strong>Install Hook</strong> for each profile. Your existing status line keeps working.</li>
+      <li>Send any message in Claude Code. Usage appears after Claude Code next redraws its status line.</li>
+    </ol>
+
+    <h2>Pair your iPhone and Apple Watch</h2>
+    <ol>
+      <li>On the Mac: BurnArc → Settings → iPhones → <strong>Pair iPhone</strong>. A QR code and a code appear; they expire after 10 minutes.</li>
+      <li>On the iPhone: open BurnArc and scan the code, or type it. Both devices must be on the same Wi-Fi.</li>
+      <li>The Apple Watch app gets its data from your iPhone. Install it from the Watch app on your iPhone if it isn't there yet.</li>
+    </ol>
+
+    <h2>Troubleshooting</h2>
+    <p><strong>"Waiting for Claude Code"</strong> — the hook is installed but Claude Code hasn't redrawn its status line yet. Send a message in that profile.</p>
+    <p><strong>"No plan limits reported"</strong> — Claude Code only reports 5-hour and weekly limits for Pro and Max plans.</p>
+    <p><strong>"Hook not installed"</strong> — click Install Hook next to the profile in Settings. If you changed your status line by hand, click Update.</p>
+    <p><strong>The iPhone can't find the Mac</strong> — check both are on the same Wi-Fi, BurnArc is running on the Mac, and Local Network access is allowed for BurnArc on the iPhone (Settings → Privacy &amp; Security → Local Network).</p>
+    <p><strong>No notifications</strong> — open BurnArc's Settings → Alerts. If it says notifications are off, use its button to open System Settings and allow them.</p>
+    <p><strong>Numbers look old</strong> — usage updates whenever Claude Code redraws its status line. On iPhone, the app syncs while it's open on the same Wi-Fi; pull down to refresh.</p>
+
+    <h2>Updating</h2>
+    <p>Download the latest DMG and drag BurnArc into Applications to replace the old copy. Settings, accounts and pairings are kept.</p>
+
+    <h2>Uninstalling</h2>
+    <p>In BurnArc's Settings, click <strong>Uninstall</strong> for each profile — this puts your previous status line back. Then quit BurnArc and move it to the Trash.</p>
+
+    <p style="margin-top:36px" class="fine">BurnArc is not affiliated with Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="./">Home</a><a href="./#download">Download</a><a href="support.html">Support</a><a href="privacy.html">Privacy policy</a></nav>
+    <p class="fine">© 2026 CodeScale.</p>
+  </div>
+</footer>
+</body>
+</html>

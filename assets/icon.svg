@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="BurnArc">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1A1F27"/>
+      <stop offset="1" stop-color="#0E1116"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="228" fill="url(#bg)"/>
+  <g fill="none" stroke-width="90" stroke-linecap="round">
+    <path d="M174 681A338 338 0 0 1 850 681" stroke="#2A303B"/>
+    <path d="M174 681A338 338 0 0 1 693.1 395.6" stroke="#6AA8FF"/>
+    <path d="M299 681A213 213 0 0 1 725 681" stroke="#2A303B"/>
+    <path d="M299 681A213 213 0 0 1 478.7 470.6" stroke="#F5B547"/>
+  </g>
+</svg>

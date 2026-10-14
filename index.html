@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BurnArc — Claude Code usage limits in your Mac menu bar, iPhone and Apple Watch</title>
+<meta name="description" content="BurnArc shows your Claude Code 5-hour and weekly limits live in the Mac menu bar, on iPhone, Apple Watch and widgets — with run-out projections, pace markers and alerts. No account, no server.">
+<link rel="canonical" href="https://lakpriya1s.github.io/burnarc/">
+<meta name="theme-color" content="#0E1116">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BurnArc">
+<meta property="og:title" content="BurnArc — know when Claude Code runs out, before it does">
+<meta property="og:description" content="Live 5-hour and weekly Claude Code limits in your Mac menu bar, on iPhone, Apple Watch and widgets. Run-out projections, pace markers, alerts. Private by design.">
+<meta property="og:url" content="https://lakpriya1s.github.io/burnarc/">
+<meta property="og:image" content="https://lakpriya1s.github.io/burnarc/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BurnArc's two-arc usage gauge next to the Mac menu bar reading 78% · out 44m">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BurnArc — know when Claude Code runs out, before it does">
+<meta name="twitter:description" content="Live Claude Code limits in your Mac menu bar, iPhone, Apple Watch and widgets.">
+<meta name="twitter:image" content="https://lakpriya1s.github.io/burnarc/assets/og.png">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("burnarc.theme");if(t&&t!=="default")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BurnArc",
+  "alternateName": "BurnArc - AI Usage Limits",
+  "description": "Shows Claude Code's 5-hour and weekly usage limits live in the Mac menu bar, on iPhone, Apple Watch and widgets, with run-out projections, pace markers and alerts.",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "macOS 15 or later, iOS 18 or later, watchOS 11 or later",
+  "url": "https://lakpriya1s.github.io/burnarc/",
+  "downloadUrl": "https://github.com/lakpriya1s/burnarc/releases/latest/download/BurnArc.dmg",
+  "softwareVersion": "1.0.0",
+  "image": "https://lakpriya1s.github.io/burnarc/assets/icon-512.png",
+  "screenshot": "https://lakpriya1s.github.io/burnarc/assets/og.png",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "author": { "@type": "Organization", "name": "CodeScale" },
+  "publisher": { "@type": "Organization", "name": "CodeScale" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Does BurnArc need my Claude login or API key?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. BurnArc never asks for your Claude password, OAuth token or API key. It reads the usage figures Claude Code already gives its status line, through a small hook in the Claude Code profiles you choose." } },
+    { "@type": "Question", "name": "Does it work alongside ccbar or my own status line?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. Uninstalling restores your original setting." } },
+    { "@type": "Question", "name": "Why does the iPhone app need a Mac?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with the iPhones you pair over your local Wi-Fi, and the iPhone passes them to your Apple Watch. There's no server in between." } },
+    { "@type": "Question", "name": "Which Claude plans are supported?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Claude Code reports plan limits for Pro and Max subscriptions, so that's where BurnArc shows 5-hour and weekly windows. Other accounts appear with no plan limits reported." } },
+    { "@type": "Question", "name": "Is BurnArc made by Anthropic?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. BurnArc is an independent app by CodeScale that works with Claude Code. It isn't affiliated with or endorsed by Anthropic." } },
+    { "@type": "Question", "name": "How do I update the Mac app?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Download the latest DMG from this site and drag BurnArc into Applications to replace the old copy. Your settings, accounts and pairings are kept." } }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="BurnArc home"><img src="assets/icon.svg" alt="" width="30" height="30">BurnArc</a>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#everywhere">Mac, iPhone &amp; Watch</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary btn-small" href="#download">Download</a>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Works with Claude Code</span>
+        <h1 id="hero-title">Know when Claude Code runs out — <span>before it does.</span></h1>
+        <p class="lede">BurnArc puts your 5-hour and weekly limits in the Mac menu bar, on your iPhone, Apple Watch and widgets. It projects when you'll hit the wall, tells you before you do, and lets you know the moment you're back.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://github.com/lakpriya1s/burnarc/releases/latest/download/BurnArc.dmg" data-download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+            Download for Mac
+          </a>
+          <a class="btn btn-ghost" href="#everywhere">iPhone &amp; Watch — coming soon</a>
+          <p class="cta-note">Free · v1.0.0 · 2 MB DMG · macOS 15+ · signed and notarized by Apple</p>
+        </div>
+      </div>
+      <div class="stage" aria-label="Animated preview of BurnArc">
+        <div class="menubar" aria-hidden="true">
+          <span class="faint">Wed 3:14 PM</span>
+          <span class="item active"><svg class="tray" data-hero-tray viewBox="0 0 24 16"></svg><span class="mono" data-hero-title>42% · 2h24</span></span>
+        </div>
+        <div class="card popover">
+          <div class="hero-gauge gauge" style="margin: 8px auto 4px">
+            <div class="g-num"><b>42%</b><span class="g-sub">Week 18%</span></div>
+          </div>
+          <p class="hero-caption" aria-live="polite">resets in 2h 24m</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="band" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">How it works</span>
+        <h2 id="how-title">Set up once. Then just glance.</h2>
+        <p>BurnArc reads the numbers Claude Code already prints to its status line. Nothing to log in to, nothing to paste.</p>
+      </div>
+      <ol class="steps" style="list-style:none;padding:0;margin:0">
+        <li class="card step reveal">
+          <h3>Add your Claude Code profiles</h3>
+          <p>Open BurnArc on your Mac and pick your profile folders — <code>~/.claude</code>, <code>~/.claude-work</code>, as many as you use. One click installs a tiny status-line hook. Your existing status line, ccbar included, keeps working.</p>
+        </li>
+        <li class="card step reveal">
+          <h3>Watch the menu bar</h3>
+          <p>Two live rings and a number — <code>83%</code> or <code>83% · 1h32</code> — follow your tightest limit. Click for every account, window, pace and run-out time.</p>
+        </li>
+        <li class="card step reveal">
+          <h3>Pair your iPhone</h3>
+          <p>Scan a QR code from the Mac. Your iPhone, Apple Watch and widgets pick up the same numbers over your Wi-Fi — no cloud, no account.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="band" aria-labelledby="features-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Features</span>
+        <h2 id="features-title">Everything about your limits, at a glance.</h2>
+        <p>Built for people who live in Claude Code and would rather not find out they're out of usage halfway through a refactor.</p>
+      </div>
+      <div class="grid">
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 18a9 9 0 0 1 18 0"/><path d="M7.5 18a4.5 4.5 0 0 1 9 0"/></svg></div>
+          <h3>5-hour and weekly, together</h3>
+          <p>Two nested arcs show both windows at once — the tightest outside, the other inside — with weekly in a lighter shade so you can tell them apart.</p>
+          <p class="eg">5h 42% · Week 18%</p>
+        </article>
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <h3>Run-out projection</h3>
+          <p>Your average burn since the window started tells you when you'll hit 100% — the same estimate as ccbar. Shown only when it lands before the reset.</p>
+          <p class="eg">runs out in 44m · or · Sat 10:05</p>
+        </article>
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 12h16"/><path d="M14 7v10"/></svg></div>
+          <h3>Pace marker</h3>
+          <p>A tick on every bar and arc shows where you'd be if you spread usage evenly. Ahead of the tick means you're burning fast.</p>
+          <p class="eg">12 pts ahead of even pace</p>
+        </article>
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+          <h3>Alerts that matter</h3>
+          <p>Get notified when a window passes 50, 75, 80 or 90%, when it runs out, and when it resets — once per window per cycle, never spammy.</p>
+          <p class="eg">work's 5-hour limit has reset</p>
+        </article>
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14 20a4.5 4.5 0 0 1 7-3.7"/></svg></div>
+          <h3>Every Claude account</h3>
+          <p>One account per Claude Code profile, each with its own label. Order them by urgency or your own order; the most at-risk one always comes first.</p>
+          <p class="eg">Claude Code · work · personal</p>
+        </article>
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h3l2-5 4 10 2-5h3"/></svg></div>
+          <h3>Claude status built in</h3>
+          <p>Incidents from Claude's status page show up in the menu bar and a Status tab — so you know if it's your limit or an outage.</p>
+          <p class="eg">All operational</p>
+        </article>
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 19V5M4 19h16"/><path d="M8 15l3-4 3 2 5-6"/></svg></div>
+          <h3>Trends</h3>
+          <p>7 and 30-day history: weekly usage against even pace, daily 5-hour peaks, approximate cost and a burn projection.</p>
+          <p class="eg">avg burn ~22%/h → limit in ~1h 40m</p>
+        </article>
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 15h6"/></svg></div>
+          <h3>Live session</h3>
+          <p>See the current session's model, effort and context window filling up, plus an approximate cost if you want it.</p>
+          <p class="eg">Opus · 84k / 200k context</p>
+        </article>
+        <article class="card feature reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></div>
+          <h3>Make it yours</h3>
+          <p>Show used or left, countdowns or clock times, three themes, and switches for every part of the card — context, overage, pace, cost.</p>
+          <p class="eg">Default · Mono · Vivid</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Surfaces -->
+  <section id="everywhere" class="band" aria-labelledby="everywhere-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Everywhere you look</span>
+        <h2 id="everywhere-title">Mac, iPhone, Apple Watch and widgets.</h2>
+        <p>The same numbers, wherever your eyes already are.</p>
+      </div>
+
+      <div class="show reveal">
+        <div class="visual">
+          <div class="card popover" aria-label="BurnArc menu-bar popover on the Mac">
+            <div class="pop-head"><h3>Limits</h3><span class="muted mono" style="font-size:12px">↻ ⚙ ⌘Q</span></div>
+            <div class="acct">
+              <div class="acct-row"><span class="dot" aria-hidden="true"></span><span class="acct-name">work</span><span class="pill">Runs out 3:58 PM</span></div>
+              <div class="win"><span class="label">5-hour</span><span class="bar"><i style="width:78%;background:var(--danger)"></i><b style="left:52%"></b></span><span class="val">78% · 2h24</span></div>
+              <div class="win"><span class="label">Weekly</span><span class="bar"><i style="width:31%;background:var(--weekly)"></i><b style="left:40%"></b></span><span class="val">31% · Sat</span></div>
+              <div class="win"><span class="label">Context</span><span class="bar"><i style="width:42%;background:var(--context)"></i></span><span class="val">84k/200k</span></div>
+            </div>
+            <div class="acct">
+              <div class="acct-row"><span class="acct-name">personal</span></div>
+              <div class="win"><span class="label">5-hour</span><span class="bar"><i style="width:12%"></i><b style="left:30%"></b></span><span class="val">12% · 3h30</span></div>
+              <div class="win"><span class="label">Weekly</span><span class="bar"><i style="width:22%;background:var(--weekly)"></i><b style="left:40%"></b></span><span class="val">22% · Sat</span></div>
+            </div>
+            <div class="pop-foot"><span><span class="dot" aria-hidden="true"></span>All operational</span><span>via status line · 1m ago</span></div>
+          </div>
+        </div>
+        <div>
+          <span class="kicker">Mac menu bar</span>
+          <h3 style="font-size:28px">Always one glance away.</h3>
+          <ul>
+            <li><span><strong>Live rings in the menu bar</strong> — outer for 5-hour, inner for weekly — turning orange when a window will run out.</span></li>
+            <li><span><strong>Your choice of text:</strong> just the icon, <span class="mono">83%</span>, or <span class="mono">83% · 1h32</span> with the time to reset or run-out.</span></li>
+            <li><span><strong>One click for everything:</strong> every account, every window, pace, run-out, context and overage.</span></li>
+            <li><span><strong>Hook install in one click</strong> per profile — update or uninstall just as easily, with your old status line restored.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="show flip reveal">
+        <div class="visual">
+          <div class="phone" aria-label="BurnArc on iPhone, Limits tab">
+            <div class="screen">
+              <h4>Limits</h4>
+              <p class="sub">Updated just now · 2 accounts</p>
+              <div class="card">
+                <div class="acct-row" style="margin:0"><span class="dot" aria-hidden="true"></span><span class="acct-name">work</span><span class="pill">Runs out in 44m</span></div>
+                <div class="win"><span class="label">5-hour</span><span class="val">78% used</span><span class="bar"><i style="width:78%;background:var(--danger)"></i><b style="left:52%"></b></span></div>
+                <p class="cap">burning ~30%/h · resets in 2h 24m</p>
+                <div class="win"><span class="label">Weekly</span><span class="val">31% used</span><span class="bar"><i style="width:31%;background:var(--weekly)"></i><b style="left:40%"></b></span></div>
+                <p class="cap">on pace · resets Sat 9:00 AM</p>
+              </div>
+              <div class="card">
+                <div class="acct-row" style="margin:0"><span class="acct-name">personal</span></div>
+                <div class="win"><span class="label">5-hour</span><span class="val">12% used</span><span class="bar"><i style="width:12%"></i><b style="left:30%"></b></span></div>
+                <div class="win"><span class="label">Weekly</span><span class="val">22% used</span><span class="bar"><i style="width:22%;background:var(--weekly)"></i><b style="left:40%"></b></span></div>
+              </div>
+              <div class="tabbar" aria-hidden="true"><span class="on">Limits</span><span>Status</span><span>Trends</span><span>Settings</span></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="kicker">iPhone</span>
+          <h3 style="font-size:28px">Your limits in your pocket.</h3>
+          <ul>
+            <li><span><strong>Limits:</strong> a card per account with bars, pace markers, run-out badges, overage and the live session.</span></li>
+            <li><span><strong>Status:</strong> Claude's services, active incidents and a 14-day history.</span></li>
+            <li><span><strong>Trends:</strong> weekly usage against even pace, daily peaks and where your burn rate is heading.</span></li>
+            <li><span><strong>Pairs with a QR code</strong> over your Wi-Fi. Several Macs? Pair them all. Want a look first? Try it with sample data.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="show reveal">
+        <div class="visual" style="align-items:center">
+          <div class="watch" aria-label="BurnArc on Apple Watch">
+            <div class="screen">
+              <p class="title">Limits</p>
+              <div class="card">
+                <div class="acct-row" style="margin:0 0 4px"><span class="acct-name" style="font-size:13px">work</span><span class="dot" style="margin-left:auto;background:var(--danger)" aria-hidden="true"></span></div>
+                <div class="gauge" data-o="0.78" data-oc="var(--danger)" data-op="0.52" data-i="0.31" data-ip="0.4">
+                  <div class="g-num" style="font-size:18px"><b>78%</b><span class="g-sub" style="font-size:9px">Week 31%</span></div>
+                </div>
+                <p class="cap" style="text-align:center;margin-top:4px;color:var(--danger)">runs out in 44m</p>
+              </div>
+            </div>
+          </div>
+          <div class="lock" aria-hidden="true">
+            <div class="circ"><div class="gauge" style="width:48px" data-o="0.42" data-oc="#fff" data-op="0.52"><div class="g-num" style="font-size:13px"><b>42</b></div></div></div>
+            <div class="circ"><div class="gauge" style="width:48px" data-o="0.18" data-oc="#fff"><div class="g-num" style="font-size:13px"><b>18</b></div></div></div>
+          </div>
+        </div>
+        <div>
+          <span class="kicker">Apple Watch</span>
+          <h3 style="font-size:28px">On your wrist, mid-flow.</h3>
+          <ul>
+            <li><span><strong>Arc cards</strong> for each account — the same nested gauge as the widget, with run-out or reset time underneath.</span></li>
+            <li><span><strong>Tap for everything:</strong> every window with its burn rate, the live session's context and cost, and overage.</span></li>
+            <li><span><strong>Complications and Smart Stack:</strong> circular, rectangular, inline and corner, plus a card with your two tightest accounts.</span></li>
+            <li><span><strong>Alerts follow you:</strong> reset notifications from your iPhone show on the watch when the phone is locked.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="show flip reveal">
+        <div class="visual">
+          <div class="widgets" aria-label="BurnArc widgets">
+            <div class="widget">
+              <div class="w-head">work<span class="dot" style="background:var(--danger)" aria-hidden="true"></span></div>
+              <div class="gauge" data-o="0.45" data-oc="var(--danger)" data-op="0.62" data-i="0.18" data-ic="var(--accent)" data-ip="0.3">
+                <div class="g-num"><b>45%</b><span class="g-sub" style="color:var(--accent)">5h 18%</span></div>
+              </div>
+              <p class="w-foot">resets in 3d 23h</p>
+            </div>
+            <div class="widget">
+              <div class="w-head">personal</div>
+              <div style="margin:auto 0">
+                <div class="win"><span class="label">5h</span><span class="bar"><i style="width:12%"></i><b style="left:30%"></b></span><span class="val">12%</span></div>
+                <div class="win"><span class="label">Week</span><span class="bar"><i style="width:22%;background:var(--weekly)"></i><b style="left:40%"></b></span><span class="val">22%</span></div>
+              </div>
+              <p class="w-foot">resets in 3h 30m</p>
+            </div>
+            <div class="widget wide">
+              <div class="win"><span class="label" style="color:var(--text);font-weight:600">work</span><span class="bar"><i style="width:78%;background:var(--danger)"></i><b style="left:52%"></b></span><span class="val">78% used</span></div>
+              <div class="win"><span class="label" style="color:var(--text);font-weight:600">home</span><span class="bar"><i style="width:22%"></i><b style="left:40%"></b></span><span class="val">22% used</span></div>
+              <p class="w-foot" style="margin-top:6px">lowest window shown · updated 1 min ago</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="kicker">Widgets</span>
+          <h3 style="font-size:28px">Home Screen, Lock Screen, desktop.</h3>
+          <ul>
+            <li><span><strong>Focus:</strong> one account's tightest window as nested arcs — small, circular, rectangular and inline, on iPhone, Mac and Apple Watch.</span></li>
+            <li><span><strong>Windows:</strong> every window for one account, with bars and pace markers.</span></li>
+            <li><span><strong>All accounts:</strong> the tightest window of each account in one medium widget.</span></li>
+            <li><span><strong>Refreshes on time:</strong> timelines update at the next reset or run-out, and at least every 30 minutes.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo -->
+  <section id="demo" class="band" aria-labelledby="demo-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Try the maths</span>
+        <h2 id="demo-title">Will you make it to the reset?</h2>
+        <p>BurnArc projects run-out from your average burn since the window started — the same estimate ccbar uses. Drag the sliders.</p>
+      </div>
+      <div class="demo reveal">
+        <form id="demo-form" class="card" onsubmit="return false">
+          <fieldset class="field" style="border:0;padding:0;margin:0 0 22px">
+            <legend style="font-weight:500;margin-bottom:10px">Window</legend>
+            <div class="themes" role="radiogroup">
+              <label style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;cursor:pointer"><input type="radio" name="window" value="5h" checked> 5-hour</label>
+              <label style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;cursor:pointer"><input type="radio" name="window" value="weekly"> Weekly</label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="used">Used <output id="used-out" for="used">80%</output></label>
+            <input id="used" type="range" min="0" max="100" step="1" value="80">
+          </div>
+          <div class="field">
+            <label for="elapsed">Time into the window <output id="elapsed-out" for="elapsed">3h of 5h</output></label>
+            <input id="elapsed" type="range" min="0.1" max="5" step="0.1" value="3">
+          </div>
+          <dl class="readout">
+            <div><dt>Average burn</dt><dd id="burn">26.7%/h</dd></div>
+            <div><dt>Pace</dt><dd id="pace" style="font-size:15px">20 pts ahead</dd></div>
+            <div><dt>Resets in</dt><dd id="reset">2h</dd></div>
+          </dl>
+          <p class="verdict" id="verdict" aria-live="polite">runs out in 45m</p>
+        </form>
+        <div class="card" style="display:grid;place-items:center;padding:32px">
+          <div class="demo-gauge gauge" style="width:min(100%,300px)">
+            <div class="g-num" style="font-size:44px"><b>80%</b><span class="g-sub" style="font-size:13px;color:var(--text-2)">5-hour</span></div>
+          </div>
+          <p class="muted" style="font-size:14px;margin-top:14px;text-align:center">The white tick is even pace. Past it, you're burning faster than the window lasts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy" class="band" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Privacy</span>
+        <h2 id="privacy-title">Your usage stays on your devices.</h2>
+        <p>There's no BurnArc account and no BurnArc server. Ever.</p>
+      </div>
+      <div class="privacy-grid">
+        <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>No credentials</h3><p>BurnArc never sees your Claude password, OAuth token or API key, and never calls Anthropic's APIs on your behalf.</p></div></div>
+        <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>No prompts, no transcripts</h3><p>Only usage percentages, reset times, your account labels and the live session's model, effort, cost and project folder are shared with your iPhone. Prompts, replies, transcripts and session IDs never leave the Mac.</p></div></div>
+        <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>Local, encrypted sync</h3><p>Mac to iPhone over your own Wi-Fi with TLS and a per-phone pairing key you can revoke. iPhone to Watch over Apple's WatchConnectivity.</p></div></div>
+        <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>Sandboxed and notarized</h3><p>The Mac app runs in Apple's sandbox, only touches the profile folders you choose, and is notarized by Apple. No analytics, no tracking.</p></div></div>
+      </div>
+      <div class="flow reveal" aria-label="Data flow">
+        <span class="node">Claude Code</span><span aria-hidden="true">→</span><span class="node">status-line hook</span><span aria-hidden="true">→</span><span class="node">BurnArc for Mac</span><span aria-hidden="true">→ Wi-Fi →</span><span class="node">iPhone</span><span aria-hidden="true">→</span><span class="node">Apple Watch</span>
+      </div>
+      <p class="muted" style="text-align:center;margin-top:20px;font-size:15px">Read the full <a href="privacy.html">privacy policy</a>.</p>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section class="band" aria-labelledby="req-title">
+    <div class="wrap">
+      <div class="section-head reveal"><span class="kicker">Requirements</span><h2 id="req-title">What you need.</h2></div>
+      <dl class="reqs reveal">
+        <div class="card"><dt>Mac</dt><dd>macOS 15 Sequoia or later</dd></div>
+        <div class="card"><dt>Claude Code</dt><dd>Pro or Max plan</dd></div>
+        <div class="card"><dt>iPhone</dt><dd>iOS 18 or later</dd></div>
+        <div class="card"><dt>Apple Watch</dt><dd>watchOS 11 or later</dd></div>
+      </dl>
+      <p class="muted reveal" style="margin-top:16px;font-size:15px">The iPhone and Watch apps get their numbers from BurnArc on your Mac, on the same Wi-Fi. Version 1.0 is for iPhone; iPad support is planned.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="band faq" aria-labelledby="faq-title">
+    <div class="wrap" style="max-width:860px">
+      <div class="section-head reveal"><span class="kicker">FAQ</span><h2 id="faq-title">Questions, answered.</h2></div>
+      <details class="reveal"><summary>Does BurnArc need my Claude login or API key?</summary><p>No. BurnArc never asks for your Claude password, OAuth token or API key. It reads the usage figures Claude Code already gives its status line, through a small hook in the Claude Code profiles you choose.</p></details>
+      <details class="reveal"><summary>Does it work alongside ccbar or my own status line?</summary><p>Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. Uninstalling restores your original setting.</p></details>
+      <details class="reveal"><summary>Why does the iPhone app need a Mac?</summary><p>Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with the iPhones you pair over your local Wi-Fi, and the iPhone passes them to your Apple Watch. There's no server in between.</p></details>
+      <details class="reveal"><summary>Which Claude plans are supported?</summary><p>Claude Code reports plan limits for Pro and Max subscriptions, so that's where BurnArc shows 5-hour and weekly windows. Other accounts appear with no plan limits reported.</p></details>
+      <details class="reveal"><summary>How is the run-out time worked out?</summary><p>From your average burn since the window started: what's left × time elapsed ÷ what's used — the same estimate as ccbar. It's shown only when it comes before the window resets.</p></details>
+      <details class="reveal"><summary>How do I update the Mac app?</summary><p>Download the latest DMG from this site and drag BurnArc into Applications to replace the old copy. Your settings, accounts and pairings are kept.</p></details>
+      <details class="reveal"><summary>Is BurnArc made by Anthropic?</summary><p>No. BurnArc is an independent app by CodeScale that works with Claude Code. It isn't affiliated with or endorsed by Anthropic.</p></details>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section id="download" class="band download" aria-labelledby="download-title">
+    <div class="wrap">
+      <div class="card reveal">
+        <img src="assets/icon.svg" alt="BurnArc app icon" width="88" height="88">
+        <h2 id="download-title">Stop guessing. Start glancing.</h2>
+        <p class="muted" style="margin-top:12px;font-size:18px">BurnArc for Mac is a free download.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://github.com/lakpriya1s/burnarc/releases/latest/download/BurnArc.dmg" data-download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
+            Download for Mac
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/lakpriya1s/burnarc/releases">All releases</a>
+        </div>
+        <p class="cta-note">v1.0.0 · macOS 15+ · Apple silicon and Intel · signed and notarized<br>Open the DMG and drag BurnArc into Applications.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+      <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="30" height="30">BurnArc</a>
+      <div class="themes" role="group" aria-label="Theme">
+        <button type="button" data-theme="default" aria-pressed="true">Default</button>
+        <button type="button" data-theme="mono" aria-pressed="false">Mono</button>
+        <button type="button" data-theme="vivid" aria-pressed="false">Vivid</button>
+      </div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#download">Download</a>
+      <a href="https://github.com/lakpriya1s/burnarc/releases">Releases</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="https://github.com/lakpriya1s/burnarc/issues">Report an issue</a>
+    </nav>
+    <p class="fine">© 2026 CodeScale. BurnArc is an independent app and is not affiliated with, endorsed by or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC. Apple, Mac, iPhone and Apple Watch are trademarks of Apple Inc.</p>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

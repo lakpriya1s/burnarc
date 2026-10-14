@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — BurnArc</title>
+<meta name="description" content="BurnArc's privacy policy: no account, no server, no tracking. Your Claude Code usage stays on your Mac, iPhone and Apple Watch.">
+<link rel="canonical" href="https://lakpriya1s.github.io/burnarc/privacy.html">
+<meta name="theme-color" content="#0E1116">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BurnArc privacy policy">
+<meta property="og:description" content="No account, no server, no tracking. Your usage stays on your devices.">
+<meta property="og:url" content="https://lakpriya1s.github.io/burnarc/privacy.html">
+<meta property="og:image" content="https://lakpriya1s.github.io/burnarc/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("burnarc.theme");if(t&&t!=="default")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="30" height="30">BurnArc</a>
+    <a class="btn btn-primary btn-small" href="./#download">Download</a>
+  </div>
+</header>
+<main class="legal">
+  <div class="wrap">
+    <h1>Privacy Policy</h1>
+    <p class="mono" style="font-size:14px">Last updated 15 October 2026</p>
+
+    <p>BurnArc is made by CodeScale. It shows your Claude Code usage limits on your Mac, iPhone and Apple Watch. This policy explains what the apps handle. The short version: <strong>we don't collect anything.</strong> There is no BurnArc account, no BurnArc server, no analytics and no tracking.</p>
+
+    <h2>What we collect</h2>
+    <p>Nothing. CodeScale does not collect, receive, store or sell any personal data or usage data from BurnArc. The apps contain no analytics, advertising or tracking code.</p>
+
+    <h2>What the apps handle on your devices</h2>
+    <ul>
+      <li><strong>Claude Code status-line data (Mac).</strong> When you add a Claude Code profile folder, BurnArc installs a small script in that folder (<code>aiusage/statusline.sh</code>). Claude Code passes it the same data it gives any status line. The script saves the latest copy and a history (at most one entry a minute, kept for 30 days) inside that profile folder. It makes no network connections.</li>
+      <li><strong>Your choices.</strong> Account labels, display settings, alert settings and the profile folders you picked are stored in the app's preferences on each device.</li>
+      <li><strong>Pairing keys.</strong> Each paired iPhone gets its own secret, stored in the Keychain on the Mac and the iPhone. You can unpair at any time.</li>
+      <li><strong>Notifications.</strong> Alerts are local notifications created on your device. A small record of which alerts were already sent stays on that device.</li>
+    </ul>
+
+    <h2>What moves between your devices</h2>
+    <p>The Mac app shares usage with the iPhones you pair, directly over your local network, encrypted with TLS using that phone's pairing key. The iPhone passes it on to your Apple Watch with Apple's WatchConnectivity. What's shared:</p>
+    <ul>
+      <li>usage percentages and reset times for each window, and overage;</li>
+      <li>your account labels and your Mac's name;</li>
+      <li>for the live session: the model, effort level, approximate cost, context size and project folder.</li>
+    </ul>
+    <p>Your prompts, Claude's replies, transcripts and session IDs are never shared, and nothing is sent to CodeScale or any other server.</p>
+
+    <h2>Network connections</h2>
+    <ul>
+      <li><strong>Local network:</strong> the Mac and iPhone find each other with Bonjour on your Wi-Fi.</li>
+      <li><strong>Claude's status page:</strong> the apps read the public status page at status.claude.com to show service incidents. This request contains no data about you or your usage.</li>
+    </ul>
+    <p>BurnArc never asks for your Claude password, OAuth token or API key, and never calls Anthropic's APIs on your behalf.</p>
+
+    <h2>Deleting your data</h2>
+    <p>On iPhone, Settings → Delete all local data removes saved usage and unpairs every Mac. On the Mac, uninstall the hook from Settings for each profile (this restores your previous status line) and delete the app. Removing the apps removes their stored data.</p>
+
+    <h2>Children</h2>
+    <p>BurnArc is a developer tool and isn't directed at children. It collects no data from anyone.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the new version will be posted on this page with a new date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? <a href="https://github.com/lakpriya1s/burnarc/issues">Open an issue on GitHub</a>.</p>
+
+    <p style="margin-top:36px" class="fine">BurnArc is not affiliated with Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="./">Home</a><a href="./#download">Download</a><a href="support.html">Support</a><a href="privacy.html">Privacy policy</a></nav>
+    <p class="fine">© 2026 CodeScale.</p>
+  </div>
+</footer>
+</body>
+</html>
