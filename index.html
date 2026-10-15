@@ -57,7 +57,7 @@
     { "@type": "Question", "name": "Does BurnArc need my Claude login or API key?",
       "acceptedAnswer": { "@type": "Answer", "text": "No. BurnArc never asks for your Claude password, OAuth token or API key. It reads the usage figures Claude Code already gives its status line, through a small hook in the Claude Code profiles you choose." } },
     { "@type": "Question", "name": "Does it work alongside ccbar or my own status line?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. Uninstalling restores your original setting." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. From BurnArc 1.2 you can switch to BurnArc's own status line instead, per profile, and back again. Uninstalling restores your original setting." } },
     { "@type": "Question", "name": "Why does the iPhone app need a Mac?",
       "acceptedAnswer": { "@type": "Answer", "text": "Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with your iPhone over your Wi-Fi or through your own private iCloud, and the iPhone passes them to your Apple Watch. There's no BurnArc server in between." } },
     { "@type": "Question", "name": "Which Claude plans are supported?",
@@ -81,6 +81,7 @@
         <li><a href="#how">How it works</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#everywhere">Mac, iPhone &amp; Watch</a></li>
+        <li><a href="#terminal">Terminal</a></li>
         <li><a href="#privacy">Privacy</a></li>
         <li><a href="#faq">FAQ</a></li>
       </ul>
@@ -132,7 +133,7 @@
       <ol class="steps" style="list-style:none;padding:0;margin:0">
         <li class="card step reveal">
           <h3>Add your Claude Code profiles</h3>
-          <p>Open BurnArc on your Mac and pick your profile folders — <code>~/.claude</code>, <code>~/.claude-work</code>, as many as you use. One click installs a tiny status-line hook. Your existing status line, ccbar included, keeps working.</p>
+          <p>Open BurnArc on your Mac and pick your profile folders — <code>~/.claude</code>, <code>~/.claude-work</code>, as many as you use. One click installs a tiny status-line hook. Keep your own status line, ccbar included, or switch to BurnArc's.</p>
         </li>
         <li class="card step reveal">
           <h3>Watch the menu bar</h3>
@@ -218,7 +219,7 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="kicker">Everywhere you look</span>
-        <h2 id="everywhere-title">Mac, iPhone, Apple Watch and widgets.</h2>
+        <h2 id="everywhere-title">Mac, terminal, iPhone, Apple Watch and widgets.</h2>
         <p>The same numbers, wherever your eyes already are.</p>
       </div>
 
@@ -252,7 +253,36 @@
         </div>
       </div>
 
-      <div class="show flip reveal">
+      <div class="show flip reveal" id="terminal">
+        <div class="visual">
+          <div class="term" role="img" aria-label="Claude Code in a terminal with BurnArc's status line: work, Opus, high effort, in my-project. Context 42%, 5-hour 78% with a reset in 2h24m and a warning it runs out in 44m, weekly 31% resetting in 3 days.">
+            <div class="term-bar" aria-hidden="true"><i></i><i></i><i></i><span>my-project — claude</span></div>
+            <div class="term-body" aria-hidden="true">
+              <p class="t-rule"></p>
+              <p><span class="t-acc">❯</span> add a dark-mode toggle to the settings page</p>
+              <p class="t-rule"></p>
+              <p><span class="t-acc">work</span>  <span class="t-txt">Opus 4.8</span> <span class="t-warn">high</span> <span class="t-dim">·</span> <span class="t-mut">my-project</span></p>
+              <p class="t-line"><span class="seg"><span class="t-mut">ctx</span> <span class="t-ctx">███</span><span class="t-trk">░░░░░</span> 42%</span> <span class="seg"><span class="t-mut">5h</span> <span class="t-dan">██████</span><span class="t-trk">░░</span> 78% <span class="t-dim">↻2h24m</span> <span class="t-dan">⚠44m</span></span> <span class="seg"><span class="t-mut">7d</span> <span class="t-acc">██</span><span class="t-trk">░░░░░░</span> 31% <span class="t-dim">↻3d2h</span></span></p>
+            </div>
+          </div>
+          <div class="term-choice" aria-hidden="true">
+            <span class="muted">Status line</span><span class="chip on">BurnArc</span><span class="chip">Your own</span>
+          </div>
+        </div>
+        <div>
+          <span class="kicker">Terminal <span class="soon">New in 1.2 · coming soon</span></span>
+          <h3 style="font-size:28px">Right under your prompt, too.</h3>
+          <ul>
+            <li><span><strong>BurnArc's own status line for Claude Code:</strong> model, effort and folder, then compact bars for context, 5-hour, weekly and extra usage.</span></li>
+            <li><span><strong>The same colours and maths as the app:</strong> blue on pace, amber when you're burning fast, coral with <span class="mono">⚠44m</span> when a limit runs out before it resets.</span></li>
+            <li><span><strong>Matches your settings:</strong> theme, used or left, and the parts you show on cards. Change them on the Mac and the terminal follows.</span></li>
+            <li><span><strong>Yours to choose:</strong> already use ccbar or your own status line? Keep it, or switch to BurnArc's when you install the hook, and change your mind any time.</span></li>
+            <li><span><strong>Nothing else to install:</strong> it runs on what comes with macOS. No ccbar, no Homebrew.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="show reveal">
         <div class="visual">
           <div class="phone" aria-label="BurnArc on iPhone, Limits tab">
             <div class="screen">
@@ -286,7 +316,7 @@
         </div>
       </div>
 
-      <div class="show reveal">
+      <div class="show flip reveal">
         <div class="visual" style="align-items:center">
           <div class="watch" aria-label="BurnArc on Apple Watch">
             <div class="screen">
@@ -317,7 +347,7 @@
         </div>
       </div>
 
-      <div class="show flip reveal">
+      <div class="show reveal">
         <div class="visual">
           <div class="widgets" aria-label="BurnArc widgets">
             <div class="widget">
@@ -438,7 +468,7 @@
     <div class="wrap" style="max-width:860px">
       <div class="section-head reveal"><span class="kicker">FAQ</span><h2 id="faq-title">Questions, answered.</h2></div>
       <details class="reveal"><summary>Does BurnArc need my Claude login or API key?</summary><p>No. BurnArc never asks for your Claude password, OAuth token or API key. It reads the usage figures Claude Code already gives its status line, through a small hook in the Claude Code profiles you choose.</p></details>
-      <details class="reveal"><summary>Does it work alongside ccbar or my own status line?</summary><p>Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. Uninstalling restores your original setting.</p></details>
+      <details class="reveal"><summary>Does it work alongside ccbar or my own status line?</summary><p>Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. From BurnArc 1.2 you can switch to BurnArc's own status line instead, per profile, and back again. Uninstalling restores your original setting.</p></details>
       <details class="reveal"><summary>Why does the iPhone app need a Mac?</summary><p>Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with your iPhone over your Wi-Fi or through your own private iCloud, and the iPhone passes them to your Apple Watch. There's no BurnArc server in between.</p></details>
       <details class="reveal"><summary>Which Claude plans are supported?</summary><p>Claude Code reports plan limits for Pro and Max subscriptions, so that's where BurnArc shows 5-hour and weekly windows. Other accounts appear with no plan limits reported.</p></details>
       <details class="reveal"><summary>How is the run-out time worked out?</summary><p>From your average burn since the window started: what's left × time elapsed ÷ what's used — the same estimate as ccbar. It's shown only when it comes before the window resets.</p></details>

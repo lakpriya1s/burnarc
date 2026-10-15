@@ -308,3 +308,26 @@ footer nav a { color: var(--text-2); }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .gauge .g-fill, .gauge .g-tick { transition: none; }
 }
+
+/* Terminal: BurnArc's status line under a Claude Code prompt */
+.term {
+  width: 100%; max-width: 620px; border: 1px solid var(--border); border-radius: 14px;
+  background: #0A0C10; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+.term-bar { display: flex; align-items: center; gap: 7px; padding: 10px 14px; background: var(--raised); border-bottom: 1px solid var(--border); }
+.term-bar i { width: 11px; height: 11px; border-radius: 50%; background: var(--border); }
+.term-bar span { margin-left: 8px; font: 500 12px/1 var(--mono); color: var(--text-2); }
+.term-body { padding: 14px 16px 18px; font: 400 12.5px/1.7 var(--mono); color: var(--text); }
+.term-body p { margin: 0; white-space: pre-wrap; }
+.term-body .t-rule { height: 1px; background: var(--divider); margin: 6px 0; }
+.t-line { display: flex; flex-wrap: wrap; column-gap: 2ch; }
+.t-line .seg { white-space: pre; }
+.t-acc { color: var(--accent); } .t-txt { color: var(--text); } .t-mut { color: var(--text-2); }
+.t-dim { color: #6B7482; } .t-warn { color: var(--warning); } .t-dan { color: var(--danger); }
+.t-ctx { color: var(--context); } .t-trk { color: #3A4352; }
+.term-choice { display: flex; align-items: center; gap: 8px; font: 500 13px/1 var(--mono); }
+.term-choice .chip { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-2); }
+.term-choice .chip.on { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.soon { margin-left: 8px; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-2); letter-spacing: .04em; }
+@media (max-width: 420px) { .term-body { font-size: 11.5px; padding: 12px; } }
+@media (min-width: 920px) { #terminal { grid-template-columns: 1fr 1.3fr; } }
