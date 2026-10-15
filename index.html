@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BurnArc — Claude Code usage limits in your Mac menu bar, iPhone and Apple Watch</title>
-<meta name="description" content="BurnArc shows your Claude Code 5-hour and weekly limits live in the Mac menu bar, on iPhone, Apple Watch and widgets — with run-out projections, pace markers and alerts. No account, no server.">
+<meta name="description" content="BurnArc shows your Claude Code 5-hour and weekly limits live in the Mac menu bar, on iPhone, Apple Watch and widgets — with run-out projections, pace markers and alerts. No account, no BurnArc server.">
 <link rel="canonical" href="https://lakpriya1s.github.io/burnarc/">
 <meta name="theme-color" content="#0E1116">
 <meta name="color-scheme" content="dark">
@@ -41,7 +41,7 @@
   "operatingSystem": "macOS 15 or later, iOS 18 or later, watchOS 11 or later",
   "url": "https://lakpriya1s.github.io/burnarc/",
   "downloadUrl": "https://github.com/lakpriya1s/burnarc/releases/latest/download/BurnArc.dmg",
-  "softwareVersion": "1.0.0",
+  "softwareVersion": "1.1.0",
   "image": "https://lakpriya1s.github.io/burnarc/assets/icon-512.png",
   "screenshot": "https://lakpriya1s.github.io/burnarc/assets/og.png",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -59,7 +59,7 @@
     { "@type": "Question", "name": "Does it work alongside ccbar or my own status line?",
       "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. Uninstalling restores your original setting." } },
     { "@type": "Question", "name": "Why does the iPhone app need a Mac?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with the iPhones you pair over your local Wi-Fi, and the iPhone passes them to your Apple Watch. There's no server in between." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with your iPhone over your Wi-Fi or through your own private iCloud, and the iPhone passes them to your Apple Watch. There's no BurnArc server in between." } },
     { "@type": "Question", "name": "Which Claude plans are supported?",
       "acceptedAnswer": { "@type": "Answer", "text": "Claude Code reports plan limits for Pro and Max subscriptions, so that's where BurnArc shows 5-hour and weekly windows. Other accounts appear with no plan limits reported." } },
     { "@type": "Question", "name": "Is BurnArc made by Anthropic?",
@@ -103,7 +103,7 @@
             Download for Mac
           </a>
           <a class="btn btn-ghost" href="#everywhere">iPhone &amp; Watch — coming soon</a>
-          <p class="cta-note">Free · v1.0.0 · 2 MB DMG · macOS 15+ · signed and notarized by Apple</p>
+          <p class="cta-note">Free · v1.1.0 · 2 MB DMG · macOS 15+ · signed and notarized by Apple</p>
         </div>
       </div>
       <div class="stage" aria-label="Animated preview of BurnArc">
@@ -140,7 +140,7 @@
         </li>
         <li class="card step reveal">
           <h3>Pair your iPhone</h3>
-          <p>Scan a QR code from the Mac. Your iPhone, Apple Watch and widgets pick up the same numbers over your Wi-Fi — no cloud, no account.</p>
+          <p>Scan a QR code from the Mac. Your iPhone, Apple Watch and widgets pick up the same numbers over your Wi-Fi, or through your own iCloud when you're away — no account.</p>
         </li>
       </ol>
     </div>
@@ -182,7 +182,7 @@
         <article class="card feature reveal">
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14 20a4.5 4.5 0 0 1 7-3.7"/></svg></div>
           <h3>Every Claude account</h3>
-          <p>One account per Claude Code profile, each with its own label. Order them by urgency or your own order; the most at-risk one always comes first.</p>
+          <p>One account per Claude Code profile, each with its own label. Order them by urgency, by the one you used last, or your own order.</p>
           <p class="eg">Claude Code · work · personal</p>
         </article>
         <article class="card feature reveal">
@@ -403,17 +403,17 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="kicker">Privacy</span>
-        <h2 id="privacy-title">Your usage stays on your devices.</h2>
+        <h2 id="privacy-title">Your usage stays yours.</h2>
         <p>There's no BurnArc account and no BurnArc server. Ever.</p>
       </div>
       <div class="privacy-grid">
         <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>No credentials</h3><p>BurnArc never sees your Claude password, OAuth token or API key, and never calls Anthropic's APIs on your behalf.</p></div></div>
         <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>No prompts, no transcripts</h3><p>Only usage percentages, reset times, your account labels and the live session's model, effort, cost and project folder are shared with your iPhone. Prompts, replies, transcripts and session IDs never leave the Mac.</p></div></div>
-        <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>Local, encrypted sync</h3><p>Mac to iPhone over your own Wi-Fi with TLS and a per-phone pairing key you can revoke. iPhone to Watch over Apple's WatchConnectivity.</p></div></div>
+        <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>Encrypted sync</h3><p>Mac to iPhone over your own Wi-Fi with TLS and a per-phone pairing key you can revoke, and through your private iCloud, end-to-end encrypted, when you're away. iPhone to Watch over Apple's WatchConnectivity.</p></div></div>
         <div class="card reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><div><h3>Sandboxed and notarized</h3><p>The Mac app runs in Apple's sandbox, only touches the profile folders you choose, and is notarized by Apple. No analytics, no tracking.</p></div></div>
       </div>
       <div class="flow reveal" aria-label="Data flow">
-        <span class="node">Claude Code</span><span aria-hidden="true">→</span><span class="node">status-line hook</span><span aria-hidden="true">→</span><span class="node">BurnArc for Mac</span><span aria-hidden="true">→ Wi-Fi →</span><span class="node">iPhone</span><span aria-hidden="true">→</span><span class="node">Apple Watch</span>
+        <span class="node">Claude Code</span><span aria-hidden="true">→</span><span class="node">status-line hook</span><span aria-hidden="true">→</span><span class="node">BurnArc for Mac</span><span aria-hidden="true">→ Wi-Fi or iCloud →</span><span class="node">iPhone</span><span aria-hidden="true">→</span><span class="node">Apple Watch</span>
       </div>
       <p class="muted" style="text-align:center;margin-top:20px;font-size:15px">Read the full <a href="privacy.html">privacy policy</a>.</p>
     </div>
@@ -429,7 +429,7 @@
         <div class="card"><dt>iPhone</dt><dd>iOS 18 or later</dd></div>
         <div class="card"><dt>Apple Watch</dt><dd>watchOS 11 or later</dd></div>
       </dl>
-      <p class="muted reveal" style="margin-top:16px;font-size:15px">The iPhone and Watch apps get their numbers from BurnArc on your Mac, on the same Wi-Fi. Version 1.0 is for iPhone; iPad support is planned.</p>
+      <p class="muted reveal" style="margin-top:16px;font-size:15px">The iPhone and Watch apps get their numbers from BurnArc on your Mac, over your Wi-Fi or your iCloud. Version 1.0 is for iPhone; iPad support is planned.</p>
     </div>
   </section>
 
@@ -439,7 +439,7 @@
       <div class="section-head reveal"><span class="kicker">FAQ</span><h2 id="faq-title">Questions, answered.</h2></div>
       <details class="reveal"><summary>Does BurnArc need my Claude login or API key?</summary><p>No. BurnArc never asks for your Claude password, OAuth token or API key. It reads the usage figures Claude Code already gives its status line, through a small hook in the Claude Code profiles you choose.</p></details>
       <details class="reveal"><summary>Does it work alongside ccbar or my own status line?</summary><p>Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. Uninstalling restores your original setting.</p></details>
-      <details class="reveal"><summary>Why does the iPhone app need a Mac?</summary><p>Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with the iPhones you pair over your local Wi-Fi, and the iPhone passes them to your Apple Watch. There's no server in between.</p></details>
+      <details class="reveal"><summary>Why does the iPhone app need a Mac?</summary><p>Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with your iPhone over your Wi-Fi or through your own private iCloud, and the iPhone passes them to your Apple Watch. There's no BurnArc server in between.</p></details>
       <details class="reveal"><summary>Which Claude plans are supported?</summary><p>Claude Code reports plan limits for Pro and Max subscriptions, so that's where BurnArc shows 5-hour and weekly windows. Other accounts appear with no plan limits reported.</p></details>
       <details class="reveal"><summary>How is the run-out time worked out?</summary><p>From your average burn since the window started: what's left × time elapsed ÷ what's used — the same estimate as ccbar. It's shown only when it comes before the window resets.</p></details>
       <details class="reveal"><summary>How do I update the Mac app?</summary><p>Download the latest DMG from this site and drag BurnArc into Applications to replace the old copy. Your settings, accounts and pairings are kept.</p></details>
@@ -461,7 +461,7 @@
           </a>
           <a class="btn btn-ghost" href="https://github.com/lakpriya1s/burnarc/releases">All releases</a>
         </div>
-        <p class="cta-note">v1.0.0 · macOS 15+ · Apple silicon and Intel · signed and notarized<br>Open the DMG and drag BurnArc into Applications.</p>
+        <p class="cta-note">v1.1.0 · macOS 15+ · Apple silicon and Intel · signed and notarized<br>Open the DMG and drag BurnArc into Applications.</p>
       </div>
     </div>
   </section>

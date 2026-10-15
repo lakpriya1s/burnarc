@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — BurnArc</title>
-<meta name="description" content="BurnArc's privacy policy: no account, no server, no tracking. Your Claude Code usage stays on your Mac, iPhone and Apple Watch.">
+<meta name="description" content="BurnArc's privacy policy: no account, no BurnArc server, no tracking. Your Claude Code usage stays on your devices and in your own iCloud.">
 <link rel="canonical" href="https://lakpriya1s.github.io/burnarc/privacy.html">
 <meta name="theme-color" content="#0E1116">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BurnArc privacy policy">
-<meta property="og:description" content="No account, no server, no tracking. Your usage stays on your devices.">
+<meta property="og:description" content="No account, no BurnArc server, no tracking. Your usage stays on your devices and in your own iCloud.">
 <meta property="og:url" content="https://lakpriya1s.github.io/burnarc/privacy.html">
 <meta property="og:image" content="https://lakpriya1s.github.io/burnarc/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -44,7 +44,7 @@
       <li><strong>Claude Code status-line data (Mac).</strong> When you add a Claude Code profile folder, BurnArc installs a small script in that folder (<code>aiusage/statusline.sh</code>). Claude Code passes it the same data it gives any status line. The script saves the latest copy and a history (at most one entry a minute, kept for 30 days) inside that profile folder. It makes no network connections.</li>
       <li><strong>Your choices.</strong> Account labels, display settings, alert settings and the profile folders you picked are stored in the app's preferences on each device.</li>
       <li><strong>Pairing keys.</strong> Each paired iPhone gets its own secret, stored in the Keychain on the Mac and the iPhone. You can unpair at any time.</li>
-      <li><strong>Notifications.</strong> Alerts are local notifications created on your device. A small record of which alerts were already sent stays on that device.</li>
+      <li><strong>Notifications.</strong> Alerts are created on your devices. A small record of which alerts were already sent stays on the device that sent them. With iCloud sync on, the Mac also sends your iPhone's warnings through your iCloud (see below).</li>
     </ul>
 
     <h2>What moves between your devices</h2>
@@ -54,11 +54,21 @@
       <li>your account labels and your Mac's name;</li>
       <li>for the live session: the model, effort level, approximate cost, context size and project folder.</li>
     </ul>
-    <p>Your prompts, Claude's replies, transcripts and session IDs are never shared, and nothing is sent to me or any other server.</p>
+    <p>Your prompts, Claude's replies, transcripts and session IDs are never shared, and nothing is sent to me.</p>
+
+    <h2>iCloud sync</h2>
+    <p>So your iPhone stays up to date away from your Wi-Fi and while its app is closed, BurnArc can also sync through <strong>your own private iCloud database</strong> (Apple's CloudKit). It's on by default, and you can turn it off in Settings on each device. With it on:</p>
+    <ul>
+      <li>The Mac saves the usage listed above to your iCloud, in an <strong>end-to-end encrypted</strong> field that only your devices can read. The iPhone fetches it from there.</li>
+      <li>The iPhone saves its alert settings there, also end-to-end encrypted, so the Mac can warn it.</li>
+      <li>The Mac's warnings for your iPhone (for example "Weekly limit 80% used") are saved as short notifications so Apple can deliver them as push notifications. Their title and text aren't end-to-end encrypted. The Mac deletes them after a day.</li>
+    </ul>
+    <p>This data lives in your iCloud account under Apple's <a href="https://www.apple.com/legal/privacy/">privacy policy</a>. I can't see your private database. Turning iCloud sync off on the Mac deletes its saved usage, and turning it off on the iPhone deletes its alert settings.</p>
 
     <h2>Network connections</h2>
     <ul>
       <li><strong>Local network:</strong> the Mac and iPhone find each other with Bonjour on your Wi-Fi.</li>
+      <li><strong>iCloud:</strong> with iCloud sync on, the apps talk to your private iCloud database, as described above.</li>
       <li><strong>Claude's status page:</strong> the apps read the public status page at status.claude.com to show service incidents. This request contains no data about you or your usage.</li>
     </ul>
     <p>BurnArc never asks for your Claude password, OAuth token or API key, and never calls Anthropic's APIs on your behalf.</p>
