@@ -41,7 +41,7 @@
   "operatingSystem": "macOS 15 or later, iOS 18 or later, watchOS 11 or later",
   "url": "https://lakpriya1s.github.io/burnarc/",
   "downloadUrl": "https://github.com/lakpriya1s/burnarc/releases/latest/download/BurnArc.dmg",
-  "softwareVersion": "1.1.1",
+  "softwareVersion": "1.2.0",
   "image": "https://lakpriya1s.github.io/burnarc/assets/icon-512.png",
   "screenshot": "https://lakpriya1s.github.io/burnarc/assets/og.png",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -57,7 +57,7 @@
     { "@type": "Question", "name": "Does BurnArc need my Claude login or API key?",
       "acceptedAnswer": { "@type": "Answer", "text": "No. BurnArc never asks for your Claude password, OAuth token or API key. It reads the usage figures Claude Code already gives its status line, through a small hook in the Claude Code profiles you choose." } },
     { "@type": "Question", "name": "Does it work alongside ccbar or my own status line?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. From BurnArc 1.2 you can switch to BurnArc's own status line instead, per profile, and back again. Uninstalling restores your original setting." } },
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. Or switch to BurnArc's own status line instead, per profile, and back again. Uninstalling restores your original setting." } },
     { "@type": "Question", "name": "Why does the iPhone app need a Mac?",
       "acceptedAnswer": { "@type": "Answer", "text": "Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with your iPhone over your Wi-Fi or through your own private iCloud, and the iPhone passes them to your Apple Watch. There's no BurnArc server in between." } },
     { "@type": "Question", "name": "Which Claude plans are supported?",
@@ -104,7 +104,7 @@
             Download for Mac
           </a>
           <a class="btn btn-ghost" href="#everywhere">iPhone &amp; Watch — coming soon</a>
-          <p class="cta-note">Free · v1.1.1 · 2 MB DMG · macOS 15+ · signed and notarized by Apple</p>
+          <p class="cta-note">Free · v1.2.0 · 2 MB DMG · macOS 15+ · signed and notarized by Apple</p>
         </div>
       </div>
       <div class="stage" aria-label="Animated preview of BurnArc">
@@ -270,7 +270,7 @@
           </div>
         </div>
         <div>
-          <span class="kicker">Terminal <span class="soon">New in 1.2 · coming soon</span></span>
+          <span class="kicker">Terminal <span class="soon">New in 1.2</span></span>
           <h3 style="font-size:28px">Right under your prompt, too.</h3>
           <ul>
             <li><span><strong>BurnArc's own status line for Claude Code:</strong> model, effort and folder, then compact bars for context, 5-hour, weekly and extra usage.</span></li>
@@ -468,7 +468,7 @@
     <div class="wrap" style="max-width:860px">
       <div class="section-head reveal"><span class="kicker">FAQ</span><h2 id="faq-title">Questions, answered.</h2></div>
       <details class="reveal"><summary>Does BurnArc need my Claude login or API key?</summary><p>No. BurnArc never asks for your Claude password, OAuth token or API key. It reads the usage figures Claude Code already gives its status line, through a small hook in the Claude Code profiles you choose.</p></details>
-      <details class="reveal"><summary>Does it work alongside ccbar or my own status line?</summary><p>Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. From BurnArc 1.2 you can switch to BurnArc's own status line instead, per profile, and back again. Uninstalling restores your original setting.</p></details>
+      <details class="reveal"><summary>Does it work alongside ccbar or my own status line?</summary><p>Yes. The hook records the status-line data, then runs your existing status line command with the same input, so your terminal looks exactly as before. Or switch to BurnArc's own status line instead, per profile, and back again. Uninstalling restores your original setting.</p></details>
       <details class="reveal"><summary>Why does the iPhone app need a Mac?</summary><p>Claude Code runs on your Mac, so that's where the usage numbers are. The Mac app shares them with your iPhone over your Wi-Fi or through your own private iCloud, and the iPhone passes them to your Apple Watch. There's no BurnArc server in between.</p></details>
       <details class="reveal"><summary>Which Claude plans are supported?</summary><p>Claude Code reports plan limits for Pro and Max subscriptions, so that's where BurnArc shows 5-hour and weekly windows. Other accounts appear with no plan limits reported.</p></details>
       <details class="reveal"><summary>How is the run-out time worked out?</summary><p>From your average burn since the window started: what's left × time elapsed ÷ what's used — the same estimate as ccbar. It's shown only when it comes before the window resets.</p></details>
@@ -491,7 +491,7 @@
           </a>
           <a class="btn btn-ghost" href="https://github.com/lakpriya1s/burnarc/releases">All releases</a>
         </div>
-        <p class="cta-note">v1.1.1 · macOS 15+ · Apple silicon and Intel · signed and notarized<br>Open the DMG and drag BurnArc into Applications.</p>
+        <p class="cta-note">v1.2.0 · macOS 15+ · Apple silicon and Intel · signed and notarized<br>Open the DMG and drag BurnArc into Applications.</p>
       </div>
     </div>
   </section>
