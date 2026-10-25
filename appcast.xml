@@ -16,5 +16,18 @@
 </description>
       <enclosure url="https://github.com/lakpriya1s/burnarc/releases/download/mac-v1.2.8/BurnArc-1.2.8.dmg" type="application/octet-stream" sparkle:edSignature="W3v4pjkVQF8td6KoeEA+JGuDcgAHoD8Me7//MECxOmO3nN7lqHgZj/PPtliautgWP+gU/KTcFpWoAI7hwoxpCg==" length="3348922" />
     </item>
+    <item>
+      <title>BurnArc 1.2.9</title>
+      <pubDate>Sun, 25 Oct 2026 18:26:37 +0000</pubDate>
+      <sparkle:version>202610260324</sparkle:version>
+      <sparkle:shortVersionString>1.2.9</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/lakpriya1s/burnarc/releases/tag/mac-v1.2.9</sparkle:fullReleaseNotesLink>
+      <description>
+&lt;h1&gt;BurnArc 1.2.9&lt;/h1&gt;
+&lt;p&gt;See what's new in the &lt;a href="https://github.com/lakpriya1s/burnarc/releases/tag/mac-v1.2.9"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <enclosure url="https://github.com/lakpriya1s/burnarc/releases/download/mac-v1.2.9/BurnArc-1.2.9.dmg" type="application/octet-stream" sparkle:edSignature="64CIVQg/gwxi4Qe/IyqQ9M7a/nnHrG59Y9bjEHXv3mvO0Z2mLqj55D0VfQOdKsahviJyySXMPDo+4A+8T7i/Cg==" length="3339288" />
+    </item>
   </channel>
 </rss>
