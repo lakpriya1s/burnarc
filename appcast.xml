@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>BurnArc for Mac</title>
+    <link>https://lakpriya.com/burnarc/</link>
+    <item>
+      <title>BurnArc 1.2.8</title>
+      <pubDate>Sun, 25 Oct 2026 17:48:59 +0000</pubDate>
+      <sparkle:version>202610260246</sparkle:version>
+      <sparkle:shortVersionString>1.2.8</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+      <sparkle:fullReleaseNotesLink>https://github.com/lakpriya1s/burnarc/releases/tag/mac-v1.2.8</sparkle:fullReleaseNotesLink>
+      <description>
+&lt;h1&gt;BurnArc 1.2.8&lt;/h1&gt;
+&lt;p&gt;See what's new in the &lt;a href="https://github.com/lakpriya1s/burnarc/releases/tag/mac-v1.2.8"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+</description>
+      <enclosure url="https://github.com/lakpriya1s/burnarc/releases/download/mac-v1.2.8/BurnArc-1.2.8.dmg" type="application/octet-stream" sparkle:edSignature="W3v4pjkVQF8td6KoeEA+JGuDcgAHoD8Me7//MECxOmO3nN7lqHgZj/PPtliautgWP+gU/KTcFpWoAI7hwoxpCg==" length="3348922" />
+    </item>
+  </channel>
+</rss>
